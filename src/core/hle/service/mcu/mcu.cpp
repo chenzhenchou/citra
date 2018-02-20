@@ -40,7 +40,7 @@ void Module::Interface::Set3DLEDState(Kernel::HLERequestContext& ctx) {
 }
 
 void Module::Interface::GetSoundVolume(Kernel::HLERequestContext& ctx) {
-    IPC::RequestParser rp(ctx, 0x000B00, 0, 0);
+    IPC::RequestParser rp(ctx, 0x000B, 0, 0);
     IPC::RequestBuilder rb = rp.MakeBuilder(1, 0);
     rb.Push(RESULT_SUCCESS);
     rb.Push<u8>(0x3F);
@@ -48,7 +48,7 @@ void Module::Interface::GetSoundVolume(Kernel::HLERequestContext& ctx) {
 }
 
 void Module::Interface::GetSoundVolume2(Kernel::HLERequestContext& ctx) {
-    IPC::RequestParser rp(ctx, 0x000E00, 0, 0);
+    IPC::RequestParser rp(ctx, 0x000E, 0, 0);
     IPC::RequestBuilder rb = rp.MakeBuilder(1, 0);
     rb.Push(RESULT_SUCCESS);
     rb.Push<u8>(0x3F);
