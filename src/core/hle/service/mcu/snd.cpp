@@ -10,7 +10,6 @@ namespace MCU {
 SND::SND(std::shared_ptr<Module> mcu) : Module::Interface(std::move(mcu), "mcu::SND", 1) {
     static const FunctionInfo functions[] = {
         {0x00010080, nullptr, "GetSoundVolume"},
-        {0x00020040, nullptr, "unk_0x00020040"},
         {0x00030000, nullptr, "GetRegister25h"},
     };
     RegisterHandlers(functions);
