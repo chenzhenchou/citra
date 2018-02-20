@@ -7,12 +7,7 @@
 namespace Service {
 namespace MCU {
 
-CDC::CDC(std::shared_ptr<Module> mcu) : Module::Interface(std::move(mcu), "mcu::CDC", 1) {
-    static const FunctionInfo functions[] = {
-        {0x00010000, nullptr, "unk_0x00010000"},
-    };
-    RegisterHandlers(functions);
-}
+CDC::CDC(std::shared_ptr<Module> mcu) : Module::Interface(std::move(mcu), "mcu::CDC", 1) {}
 
 } // namespace MCU
 } // namespace Service
