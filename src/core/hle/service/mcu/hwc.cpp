@@ -22,7 +22,6 @@ HWC::HWC(std::shared_ptr<Module> mcu) : Module::Interface(std::move(mcu), "mcu::
         {0x000B0000, &HWC::GetSoundVolume, "GetSoundVolume"},
         {0x000C0040, nullptr, "SetTopScreenFlicker"},
         {0x000D0040, nullptr, "SetBottomScreenFlicker"},
-        {0x000E0080, nullptr, "unk_0x000E0080"},
         {0x000F00C0, nullptr, "GetRtcTime"},
         {0x00100000, nullptr, "GetMcuFwVerHigh"},
         {0x00110000, nullptr, "GetMcuFwVerLow"},
