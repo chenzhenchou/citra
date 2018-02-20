@@ -24,15 +24,15 @@ namespace Service {
 namespace MCU {
 
 void Module::Interface::GetBatteryLevel(Kernel::HLERequestContext& ctx) {
-    IPC::RequestParser rp(ctx, 0x000500, 0, 0);
-    IPC::RequestBuilder rb = rp.MakeBuilder(1, 0);
+    IPC::RequestParser rp(ctx, 0x0005, 0, 0);
+    IPC::RequestBuilder rb = rp.MakeBuilder(2, 0);
     rb.Push(RESULT_SUCCESS);
     rb.Push<u8>(0x64);
     LOG_WARNING(Service_MCU, "(STUBBED) called");
 }
 
 void Module::Interface::Set3DLEDState(Kernel::HLERequestContext& ctx) {
-    IPC::RequestParser rp(ctx, 0x000900, 4, 0);
+    IPC::RequestParser rp(ctx, 0x0009, 1, 0);
     u8 state = rp.Pop<u8>();
     SharedPage::shared_page.ledstate_3d = state;
     IPC::RequestBuilder rb = rp.MakeBuilder(1, 0);
