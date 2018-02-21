@@ -41,7 +41,7 @@ void Module::Interface::Set3DLEDState(Kernel::HLERequestContext& ctx) {
 
 void Module::Interface::GetSoundVolume(Kernel::HLERequestContext& ctx) {
     IPC::RequestParser rp(ctx, 0x000B, 0, 0);
-    IPC::RequestBuilder rb = rp.MakeBuilder(1, 0);
+    IPC::RequestBuilder rb = rp.MakeBuilder(2, 0);
     rb.Push(RESULT_SUCCESS);
     rb.Push<u8>(0x3F);
     LOG_WARNING(Service_MCU, "(STUBBED) called");
@@ -49,7 +49,7 @@ void Module::Interface::GetSoundVolume(Kernel::HLERequestContext& ctx) {
 
 void Module::Interface::GetSoundVolume2(Kernel::HLERequestContext& ctx) {
     IPC::RequestParser rp(ctx, 0x000E, 0, 0);
-    IPC::RequestBuilder rb = rp.MakeBuilder(1, 0);
+    IPC::RequestBuilder rb = rp.MakeBuilder(2, 0);
     rb.Push(RESULT_SUCCESS);
     rb.Push<u8>(0x3F);
     LOG_WARNING(Service_MCU, "(STUBBED) called");
