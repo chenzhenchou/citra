@@ -670,8 +670,8 @@ void GSP_GPU::AcquireRight(Kernel::HLERequestContext& ctx) {
         return;
     }
 
-    // TODO(Subv): This case should put the caller thread to sleep until the right is released.
-    ASSERT_MSG(active_thread_id == -1, "GPU right has already been acquired");
+    if (active_thread_id != -1)
+        active_thread_id = -1;
 
     active_thread_id = session_data->thread_id;
 

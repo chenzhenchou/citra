@@ -8,6 +8,7 @@
 #include <string>
 #include "common/common_types.h"
 #include "core/hle/service/cam/cam.h"
+#include "core/hle/service/cfg/cfg.h"
 
 namespace Settings {
 
@@ -108,8 +109,9 @@ struct Values {
     // Data Storage
     bool use_virtual_sd;
 
-    // System Region
+    // System
     int region_value;
+    Service::CFG::ConsoleModelInfo current_console_model;
 
     // Renderer
     bool use_hw_renderer;

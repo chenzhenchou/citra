@@ -12,6 +12,7 @@
 
 namespace Service {
 namespace GSP {
+
 /**
  * Retrieves the framebuffer info stored in the GSP shared memory for the
  * specified screen index and thread id.
@@ -27,7 +28,6 @@ FrameBufferUpdate* GetFrameBufferInfo(u32 thread_id, u32 screen_index);
  */
 void SignalInterrupt(InterruptId interrupt_id);
 
-void ReleaseAppletRight();
 void InstallInterfaces(SM::ServiceManager& service_manager);
 } // namespace GSP
 } // namespace Service

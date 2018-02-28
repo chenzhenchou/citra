@@ -10,9 +10,12 @@
 #include "core/hle/service/apt/errors.h"
 #include "core/hle/service/cfg/cfg.h"
 #include "core/hle/service/ns/ns.h"
+#include "core/memory.h"
 
 namespace Service {
 namespace APT {
+
+Memory::PageTable* valid_page_table;
 
 enum class AppletPos { Application = 0, Library = 1, System = 2, SysLibrary = 3, Resident = 4 };
 
@@ -373,6 +376,7 @@ ResultCode AppletManager::FinishPreloadingLibraryApplet(AppletId applet_id) {
 ResultCode AppletManager::StartLibraryApplet(AppletId applet_id,
                                              Kernel::SharedPtr<Kernel::Object> object,
                                              const std::vector<u8>& buffer) {
+    Service::APT::valid_page_table = Memory::GetCurrentPageTable();
     MessageParameter param;
     param.destination_id = applet_id;
     param.sender_id = AppletId::Application;
@@ -460,8 +464,9 @@ ResultCode AppletManager::CloseLibraryApplet(u32 parameter_size, Kernel::Handle 
     if (library_applet_closing_command != SignalType::WakeupByPause) {
         // TODO(Subv): Terminate the running applet title
         slot.Reset();
-        Service::GSP::ReleaseAppletRight();
     }
+
+    Memory::SetCurrentPageTable(Service::APT::valid_page_table);
 
     return RESULT_SUCCESS;
 }

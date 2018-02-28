@@ -6,6 +6,7 @@
 #include "citra_qt/configuration/configure_system.h"
 #include "citra_qt/ui_settings.h"
 #include "core/core.h"
+#include "core/settings.h"
 #include "core/hle/service/cfg/cfg.h"
 #include "core/hle/service/fs/archive.h"
 #include "ui_configure_system.h"
@@ -78,8 +79,9 @@ void ConfigureSystem::ReadSystemSettings() {
     ui->combo_language->setCurrentIndex(language_index);
 
     // set model
-    model_index = Service::CFG::GetSystemModelID();
-    ui->combo_model->setCurrentIndex(Service::CFG::GetSystemModelID());
+    Service::CFG::UpdateConsoleModel();
+    model_index = static_cast<int>(Settings::values.current_console_model.model);
+    ui->combo_model->setCurrentIndex(model_index);
 
     // set country
     std::tie(unknown, country_index) = Service::CFG::GetCountryInfo();
@@ -127,9 +129,10 @@ void ConfigureSystem::applyConfiguration() {
     }
 
     // apply model
-    u32 new_model = ui->combo_model->currentIndex();
+    int new_model = ui->combo_model->currentIndex();
+
     if (model_index != new_model) {
-        Service::CFG::SetSystemModel(new_model);
+        Service::CFG::SetConsoleModel(Service::CFG::ConsoleModelInfo{static_cast<u8>(new_model), {0, 0, 0}});
         modified = true;
     }
 

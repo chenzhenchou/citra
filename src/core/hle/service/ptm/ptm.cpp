@@ -8,7 +8,6 @@
 #include "core/file_sys/file_backend.h"
 #include "core/hle/kernel/svc.h"
 #include "core/hle/service/fs/archive.h"
-#include "core/hle/service/cfg/cfg.h"
 #include "core/hle/service/ptm/ptm.h"
 #include "core/hle/service/ptm/ptm_gets.h"
 #include "core/hle/service/ptm/ptm_play.h"
@@ -114,9 +113,9 @@ void Module::Interface::GetSoftwareClosedFlag(Kernel::HLERequestContext& ctx) {
 
 void CheckNew3DS(IPC::RequestBuilder& rb) {
     bool is_new_3ds = false;
-    if (Service::CFG::GetSystemModelID() == 2 ||
-        Service::CFG::GetSystemModelID() == 4 ||
-        Service::CFG::GetSystemModelID() == 5) {
+    u8 model = Settings::values.current_console_model.model;
+
+    if (model == 2 || model == 4 || model == 5) {
         is_new_3ds = true;
     }
 

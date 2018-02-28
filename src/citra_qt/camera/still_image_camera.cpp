@@ -10,9 +10,9 @@ namespace Camera {
 
 StillImageCamera::StillImageCamera(int camera_id_) : camera_id(camera_id_) {}
 
-void StillImageCamera::StartCapture(){};
+void StillImageCamera::StartCapture() {}
 
-void StillImageCamera::StopCapture(){};
+void StillImageCamera::StopCapture() {}
 
 void StillImageCamera::SetFormat(Service::CAM::OutputFormat output_format) {
     output_rgb = output_format == Service::CAM::OutputFormat::RGB565;
@@ -21,7 +21,7 @@ void StillImageCamera::SetFormat(Service::CAM::OutputFormat output_format) {
 void StillImageCamera::SetResolution(const Service::CAM::Resolution& resolution) {
     width = resolution.width;
     height = resolution.height;
-};
+}
 
 void StillImageCamera::SetFlip(Service::CAM::Flip flip) {
     using namespace Service::CAM;

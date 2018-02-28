@@ -23,8 +23,8 @@
 #include "core/hle/service/cfg/cfg_u.h"
 #include "core/hle/service/fs/archive.h"
 #include "core/hle/service/service.h"
-#include "core/memory.h"
 #include "core/settings.h"
+#include "core/memory.h"
 
 namespace Service {
 namespace CFG {
@@ -78,12 +78,6 @@ struct BirthdayBlock {
     u8 day;   ///< The day of the birthday
 };
 static_assert(sizeof(BirthdayBlock) == 2, "BirthdayBlock must be exactly 2 bytes");
-
-struct ConsoleModelInfo {
-    u8 model;      ///< The console model (3DS, 2DS, etc)
-    u8 unknown[3]; ///< Unknown data
-};
-static_assert(sizeof(ConsoleModelInfo) == 4, "ConsoleModelInfo must be exactly 4 bytes");
 
 struct ConsoleCountryInfo {
     u8 unknown[3];   ///< Unknown data
@@ -221,16 +215,16 @@ void GetRegionCanadaUSA(Service::Interface* self) {
     }
 }
 
-void SetSystemModel(u32 model) {
-    LOG_DEBUG(Service_CFG, "called model=%u", model);
-    SetConfigInfoBlock(ConsoleModelBlockID, 4, 0x8, reinterpret_cast<u8*>(&model));
+void SetConsoleModel(ConsoleModelInfo model_info) {
+    LOG_DEBUG(Service_CFG, "called model=%u", model_info.model);
+    SetConfigInfoBlock(ConsoleModelBlockID, sizeof(model_info), 0x8, &model_info);
 }
 
-u32 GetSystemModelID() {
-    u32 model;
-    GetConfigInfoBlock(ConsoleModelBlockID, 4, 0x8, reinterpret_cast<u8*>(&model));
-    LOG_DEBUG(Service_CFG, "called model=%u", model);
-    return model;
+void UpdateConsoleModel() {
+    ConsoleModelInfo model_info;
+    GetConfigInfoBlock(ConsoleModelBlockID, sizeof(model_info), 0x8, &model_info);
+    LOG_DEBUG(Service_CFG, "called model=%u", model_info.model);
+    Settings::values.current_console_model = model_info;
 }
 
 void GetSystemModel(Service::Interface* self) {

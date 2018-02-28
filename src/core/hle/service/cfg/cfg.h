@@ -16,6 +16,12 @@ class Interface;
 
 namespace CFG {
 
+struct ConsoleModelInfo {
+    u8 model;      ///< The console model (3DS, 2DS, etc)
+    u8 unknown[3]; ///< Unknown data
+};
+static_assert(sizeof(ConsoleModelInfo) == 4, "ConsoleModelInfo must be exactly 4 bytes");
+
 enum SystemModel {
     NINTENDO_3DS = 0,
     NINTENDO_3DS_XL = 1,
@@ -139,18 +145,17 @@ void GenHashConsoleUnique(Service::Interface* self);
 void GetRegionCanadaUSA(Service::Interface* self);
 
 /**
- * CFG::SetSystemModel service function
+ * CFG::SetConsoleModel
  * Input:
- *      Model of the console
+ *      Model to set
  */
-void SetSystemModel(u32 model);
+void SetConsoleModel(ConsoleModelInfo model_info);
 
 /**
- * CFG::GetSystemModelID service function
- * Output:
- *      Model of the console
+ * CFG::UpdateConsoleModel
+ * Updates the console model
  */
-u32 GetSystemModelID();
+void UpdateConsoleModel();
 
 /**
  * CFG::GetSystemModel service function

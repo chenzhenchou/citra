@@ -20,7 +20,7 @@ public:
     ~ERR_F();
 
 private:
-    /* ThrowFatalError function
+    /* ERR_F::ThrowFatalError function
      * Inputs:
      *       0 : Header code [0x00010800]
      *    1-32 : FatalErrInfo

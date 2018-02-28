@@ -1,109 +1,108 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>ConfigureCamera</class>
  <widget class="QWidget" name="ConfigureCamera">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>193</width>
+    <height>247</height>
+   </rect>
+  </property>
   <layout class="QVBoxLayout">
-    <item>
-      <widget class="QGroupBox">
-        <property name="title">
-          <string>Rear Right Camera</string>
-        </property>
-        <layout class="QVBoxLayout">
+   <item>
+    <widget class="QGroupBox" name="outer_right">
+     <property name="title">
+      <string>Outer Right Camera</string>
+     </property>
+     <layout class="QVBoxLayout">
+      <item>
+       <layout class="QHBoxLayout" name="layout_outer_right_mode">
+        <item>
+         <layout class="QHBoxLayout" name="layout_outer_right_mode_2">
           <item>
-            <layout class="QHBoxLayout">
-              <item>
-                <layout class="QHBoxLayout">
-                  <property name="alignment">
-                    <set>Qt::AlignTop</set>
-                  </property>
-                  <item>
-                    <widget class="QLabel">
-                      <property name="text">
-                        <string>Camera mode:</string>
-                      </property>
-                    </widget>
-                  </item>
-                  <item>
-                    <widget class="QComboBox" name="camera_outer_right_mode"></widget>
-                  </item>
-                </layout>
-              </item>
-              <item>
-                <widget class="DropArea" name="camera_outer_right_drop_area"></widget>
-              </item>
-            </layout>
+           <widget class="QLabel" name="label_camera_outer_right_mode">
+            <property name="text">
+             <string>Camera mode:</string>
+            </property>
+           </widget>
           </item>
-        </layout>
-      </widget>
-    </item>
-    <item>
-      <widget class="QGroupBox">
-        <property name="title">
-          <string>Rear Left Camera</string>
-        </property>
-        <layout class="QVBoxLayout">
           <item>
-            <layout class="QHBoxLayout">
-              <item>
-                <layout class="QHBoxLayout">
-                  <property name="alignment">
-                    <set>Qt::AlignTop</set>
-                  </property>
-                  <item>
-                    <widget class="QLabel">
-                      <property name="text">
-                        <string>Camera mode:</string>
-                      </property>
-                    </widget>
-                  </item>
-                  <item>
-                    <widget class="QComboBox" name="camera_outer_left_mode"></widget>
-                  </item>
-                </layout>
-              </item>
-              <item>
-                <widget class="DropArea" name="camera_outer_left_drop_area"></widget>
-              </item>
-            </layout>
+           <widget class="QComboBox" name="camera_outer_right_mode"/>
           </item>
-        </layout>
-      </widget>
-    </item>
-    <item>
-      <widget class="QGroupBox">
-        <property name="title">
-          <string>Front Camera</string>
-        </property>
-        <layout class="QVBoxLayout">
+         </layout>
+        </item>
+        <item>
+         <widget class="DropArea" name="camera_outer_right_drop_area" native="true"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="outer_left">
+     <property name="title">
+      <string>Outer Left Camera</string>
+     </property>
+     <layout class="QVBoxLayout">
+      <item>
+       <layout class="QHBoxLayout" name="layout_outer_left_mode">
+        <item>
+         <layout class="QHBoxLayout" name="layout_outer_left_mode_2">
           <item>
-            <layout class="QHBoxLayout">
-              <item>
-                <layout class="QHBoxLayout">
-                  <property name="alignment">
-                    <set>Qt::AlignTop</set>
-                  </property>
-                  <item>
-                    <widget class="QLabel">
-                      <property name="text">
-                        <string>Camera mode:</string>
-                      </property>
-                    </widget>
-                  </item>
-                  <item>
-                    <widget class="QComboBox" name="camera_inner_mode"></widget>
-                  </item>
-                </layout>
-              </item>
-              <item>
-                <widget class="DropArea" name="camera_inner_drop_area"></widget>
-              </item>
-            </layout>
+           <widget class="QLabel" name="label_camera_outer_left_mode">
+            <property name="text">
+             <string>Camera mode:</string>
+            </property>
+           </widget>
           </item>
-        </layout>
-      </widget>
-    </item>
-    <item>
-      <spacer>
+          <item>
+           <widget class="QComboBox" name="camera_outer_left_mode"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="DropArea" name="camera_outer_left_drop_area" native="true"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="inner">
+     <property name="title">
+      <string>Inner Camera</string>
+     </property>
+     <layout class="QVBoxLayout">
+      <item>
+       <layout class="QHBoxLayout" name="layout_inner_mode">
+        <item>
+         <layout class="QHBoxLayout" name="layout_front_mode_2">
+          <item>
+           <widget class="QLabel" name="label_camera_inner_mode">
+            <property name="text">
+             <string>Camera mode:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="camera_inner_mode"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="DropArea" name="camera_inner_drop_area" native="true"/>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="spacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
@@ -114,9 +113,16 @@
       </size>
      </property>
     </spacer>
-    </item>
+   </item>
   </layout>
-  </widget>
-  <resources />
-  <connections />
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>DropArea</class>
+   <extends>QWidget</extends>
+   <header>droparea.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
 </ui>

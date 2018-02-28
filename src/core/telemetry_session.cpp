@@ -162,6 +162,9 @@ TelemetrySession::TelemetrySession() {
     AddField(Telemetry::FieldType::UserSystem, "OsPlatform", "Unknown");
 #endif
 
+    Service::CFG::UpdateConsoleModel();
+    u8 model = Settings::values.current_console_model.model;
+
     // Log user configuration information
     AddField(Telemetry::FieldType::UserConfig, "Audio_EnableAudioStretching",
              Settings::values.enable_audio_stretching);
@@ -176,7 +179,7 @@ TelemetrySession::TelemetrySession() {
     AddField(Telemetry::FieldType::UserConfig, "Renderer_UseShaderJit",
              Settings::values.use_shader_jit);
     AddField(Telemetry::FieldType::UserConfig, "Renderer_UseVsync", Settings::values.use_vsync);
-    AddField(Telemetry::FieldType::UserConfig, "System_Model", Service::CFG::GetSystemModelID());
+    AddField(Telemetry::FieldType::UserConfig, "System_Model", model);
     AddField(Telemetry::FieldType::UserConfig, "System_RegionValue", Settings::values.region_value);
 }
 
