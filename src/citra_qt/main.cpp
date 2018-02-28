@@ -19,7 +19,7 @@
 #include "citra_qt/bootmanager.h"
 #include "citra_qt/control_panel.h"
 #include "citra_qt/compatdb.h"
-#include "citra_qt/camera/real_camera.h"
+#include "citra_qt/camera/qt_camera.h"
 #include "citra_qt/camera/still_image_camera.h" 
 #include "citra_qt/cheat_gui.h"
 #include "citra_qt/configuration/config.h"
@@ -1512,7 +1512,7 @@ int main(int argc, char* argv[]) {
     Log::AddBackend(
         std::make_unique<Log::FileBackend>(FileUtil::GetUserPath(D_LOGS_IDX) + LOG_FILE));
 
-    Camera::RegisterFactory("real", std::make_unique<Camera::RealCameraFactory>());
+    Camera::RegisterFactory("qt", std::make_unique<Camera::QtCameraFactory>());
     Camera::RegisterFactory("image", std::make_unique<Camera::StillImageCameraFactory>());
 #ifdef __linux__
     Camera::RegisterFactory("V4L2", std::make_unique<Camera::V4L2CameraFactory>());

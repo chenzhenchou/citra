@@ -12,8 +12,8 @@ add_executable(citra-qt
     cheat_gui.cpp
     cheat_gui.h
     citra-qt.rc
-    camera/real_camera.cpp
-    camera/real_camera.h
+    camera/qt_camera.cpp
+    camera/qt_camera.h
     camera/still_image_camera.cpp
     camera/still_image_camera.h
     configuration/config.cpp

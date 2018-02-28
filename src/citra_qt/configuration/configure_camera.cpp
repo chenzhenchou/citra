@@ -14,17 +14,17 @@ ConfigureCamera::ConfigureCamera(QWidget* parent)
     ui->camera_outer_right_mode->clear();
     ui->camera_outer_right_mode->addItem("blank");
     ui->camera_outer_right_mode->addItem("image");
-    ui->camera_outer_right_mode->addItem("real");
+    ui->camera_outer_right_mode->addItem("qt");
 
     ui->camera_outer_left_mode->clear();
     ui->camera_outer_left_mode->addItem("blank");
     ui->camera_outer_left_mode->addItem("image");
-    ui->camera_outer_left_mode->addItem("real");
+    ui->camera_outer_left_mode->addItem("qt");
 
     ui->camera_inner_mode->clear();
     ui->camera_inner_mode->addItem("blank");
     ui->camera_inner_mode->addItem("image");
-    ui->camera_inner_mode->addItem("real");
+    ui->camera_inner_mode->addItem("qt");
 
     connect(ui->camera_outer_right_mode, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &ConfigureCamera::OuterRightCameraModeChanged);
     connect(ui->camera_outer_left_mode, static_cast<void (QComboBox::*)(int)>(&QComboBox::currentIndexChanged), this, &ConfigureCamera::OuterLeftCameraModeChanged);
