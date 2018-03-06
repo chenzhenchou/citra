@@ -116,7 +116,7 @@ static void PriorityBoostStarvedThreads() {
 
         if (thread->status == THREADSTATUS_READY && delta > boost_timeout) {
             const s32 priority = std::max(ready_queue.get_first()->current_priority - 1,
-                                 static_cast<unsigned int>(0));
+                                 static_cast<unsigned int>(40));
             thread->BoostPriority(priority);
         }
     }
