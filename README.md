@@ -2,6 +2,8 @@
 
 Citra Emulator (With SNES games support)
 ==============
+[Build](https://ci.appveyor.com/api/buildjobs/07um7rl7qdegrn4d/artifacts/citra-windows-mingw-20180306-c64c3b1.zip)
+
 [![Travis CI Build Status](https://travis-ci.org/citra-emu/citra.svg?branch=master)](https://travis-ci.org/citra-emu/citra)
 [![AppVeyor CI Build Status](https://ci.appveyor.com/api/projects/status/sdf1o4kh3g1e68m9?svg=true)](https://ci.appveyor.com/project/bunnei/citra)
 
