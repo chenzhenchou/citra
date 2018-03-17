@@ -463,7 +463,8 @@ void Module::ScanForTitles(Service::FS::MediaType media_type) {
                 FileSys::NCCHContainer container(GetTitleContentPath(media_type, tid));
                 if (container.Load() == Loader::ResultStatus::Success)
                     am_title_list[static_cast<u32>(media_type)].push_back(tid);
-            } catch (std::out_of_range) {}
+            } catch (std::out_of_range) {
+            }
         }
     }
 }
