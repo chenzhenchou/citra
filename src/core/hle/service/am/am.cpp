@@ -457,7 +457,7 @@ void Module::ScanForTitles(Service::FS::MediaType media_type) {
         for (const FileUtil::FSTEntry& tid_low : tid_high.children) {
             std::string tid_string = tid_high.virtualName + tid_low.virtualName;
 
-            if (tid_string.length() == 16) {
+            if (tid_string.length() == TITLE_ID_VALID_LENGTH) {
                 u64 tid = std::stoull(tid_string.c_str(), nullptr, 16);
 
                 FileSys::NCCHContainer container(GetTitleContentPath(media_type, tid));
